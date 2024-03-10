@@ -51,20 +51,24 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
             placeholder="Title"
             value={newPost.title}
             onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+            className="form-input"
           />
           <input
             type="text"
             placeholder="Body"
             value={newPost.body}
             onChange={(e) => setNewPost({ ...newPost, body: e.target.value })}
+            className="form-input"
           />
-          <button type="submit">Post Ekle</button>
+          <button type="submit" className="form-button">
+            Post Ekle
+          </button>
         </form>
         {posts.map((post) => (
           <div key={post.id} className="card">
