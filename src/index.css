@@ -59,6 +59,21 @@
   font-weight: bold;
 }
 
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  opacity: 1;
+}
 @media (max-width: 768px) {
   .card {
     width: 100%;
