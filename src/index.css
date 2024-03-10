@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+  background-color: #e6f7ff;
+}
+
+.App-header {
+  background-color: #1890ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 2vmin);
+  color: white;
+}
+
+.card {
+  text-align: left;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: auto;
+  margin: 1rem;
+  padding: 2rem;
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card h2 {
+  text-align: left;
+  text-transform: capitalize;
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.card p {
+  text-transform: capitalize;
+  color: #333;
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.author {
+  color: #888;
+  font-size: 0.7em;
+  text-align: end;
+  width: 100%;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
