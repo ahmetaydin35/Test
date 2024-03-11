@@ -9,15 +9,16 @@ function App() {
   useEffect(() => {
     setLoading(true);
     const storedPosts = JSON.parse(localStorage.getItem("posts"));
-    if (storedPosts) {
+    if (storedPosts && storedPosts.length > 0) {
       setPosts(storedPosts);
       setLoading(false);
     } else {
       fetch("https://jsonplaceholder.typicode.com/posts")
         .then((response) => response.json())
         .then((data) => {
-          const first15Posts = data.slice(0, 15);
-          setPosts(first15Posts);
+          const first10Posts = data.slice(0, 10);
+          setPosts(first10Posts);
+          localStorage.setItem("posts", JSON.stringify(first10Posts));
           setLoading(false);
         });
     }
