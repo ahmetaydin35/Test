@@ -64,20 +64,42 @@ function Post() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p style={{ fontSize: "20px", color: "red" }}>Sayaç: {counter}</p>{" "}
-        <button
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center", // İçerikleri yatay olarak ortalar
+          padding: "10px",
+          backgroundColor: "greenblue",
+          width: "100%",
+          borderBottom: "2px solid #333", // Alt kenarına 2px kalınlığında gri bir çizgi ekler
+        }}
+      >
+        <div
           style={{
-            padding: "10px",
-            backgroundColor: "green",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
           }}
-          onClick={handleReset}
         >
-          Sıfırla
-        </button>{" "}
+          <p style={{ fontSize: "20px", color: "red" }}>Sayaç: {counter}</p>{" "}
+          <button
+            style={{
+              padding: "10px",
+              backgroundColor: "green",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              marginLeft: "20px", // Sayaç ve buton arasında boşluk bırakıyoruz
+            }}
+            onClick={handleReset}
+          >
+            Sıfırla
+          </button>{" "}
+        </div>
+      </nav>
+      <header className="App-header">
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
