@@ -119,6 +119,6 @@ form button:hover {
   }
 
   .card {
-    width: calc(70% - 2rem); /* genişliği artır */
+    width: calc(70% - 2rem);
   }
 }

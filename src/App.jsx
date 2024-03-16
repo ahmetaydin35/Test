@@ -1,11 +1,16 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 import Post from "./Post";
 
-function App() {
-  return (
-    <div>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <Post />
-    </div>
-  );
-}
+    </Provider>
+  </React.StrictMode>
+);
 
 export default App;

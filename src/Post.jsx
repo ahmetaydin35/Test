@@ -1,7 +1,11 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { increment, reset } from "../src/store/counterSlice";
 
 function Post() {
+  const counter = useSelector((state) => state.counter.value);
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: "", body: "", userId: 1 });
   const [loading, setLoading] = useState(false);
@@ -27,7 +31,14 @@ function Post() {
   const handleDelete = (id) => {
     const updatedPosts = posts.filter((post) => post.id !== id);
     setPosts(updatedPosts);
+    dispatch(increment());
+
     localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  };
+  const dispatch = useDispatch();
+
+  const handleReset = () => {
+    dispatch(reset());
   };
 
   const handleSubmit = (e) => {
@@ -39,6 +50,8 @@ function Post() {
     const updatedPost = { ...newPost, userId: lastUserId + 1, id: lastId + 1 };
     setPosts([updatedPost, ...posts]);
     setNewPost({ title: "", body: "", userId: lastUserId + 1 });
+
+    dispatch(increment());
 
     const currentPosts = JSON.parse(localStorage.getItem("posts")) || [];
     const updatedPosts = [updatedPost, ...currentPosts];
@@ -52,6 +65,19 @@ function Post() {
   return (
     <div className="App">
       <header className="App-header">
+        <p style={{ fontSize: "20px", color: "red" }}>Sayaç: {counter}</p>{" "}
+        <button
+          style={{
+            padding: "10px",
+            backgroundColor: "green",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+          }}
+          onClick={handleReset}
+        >
+          Sıfırla
+        </button>{" "}
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
